@@ -1,0 +1,65 @@
+﻿body {
+    padding-bottom: 20px;
+    background-color: #FAFAFA;
+}
+
+div.container{
+    padding-top: 15px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.8em;
+    letter-spacing: 0.1em;
+}
+
+.card-film{
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.card-film div.card-footer{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.file {
+    visibility: hidden;
+    position: absolute;
+}
+
+.img-full{
+    cursor: zoom-in;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin label.title{
+    font-size: 1.4em;
+}
+
+ 
+a.next, a.prev {
+    border-radius: 15px;
+}

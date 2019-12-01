@@ -1,0 +1,30 @@
+﻿@using Web.Models
+@model AccountViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Вход";
+}
+
+<div class="text-center">
+    <div class="form-signin">
+        <div class="card-body card ">
+            @Html.Label("Вход", new {@class="title text-info font-weight-bold"})
+            @Html.ValidationSummary("", new {@class = "text-danger text-left"})
+            <div id="Login">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.TextBoxFor(m => m.Email, new {@class = "form-control mb-2", placeholder = Html.DisplayNameFor(m => m.Email)})
+                    @Html.PasswordFor(m => m.Password, new {@class = "form-control mb-2", placeholder = Html.DisplayNameFor(m => m.Password)})
+
+                    <div class="custom-checkbox mb-2 text-right custom-switch">
+                        @Html.CheckBoxFor(m => m.RememberMe, new {@class = "custom-control-input"})
+                        @Html.LabelFor(m => m.RememberMe, new {@class = "custom-control-label"})
+                    </div>
+
+                    <input type="submit" class="btn btn-primary col-12 mb-2" value="Войти"/>
+                    @Html.ActionLink("Зарегистрироваться", "Register", "Account")
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Web.Models.FilmViewModels.FilmViewModel
+
+@{
+    ViewBag.Title = "Описание фильма";
+}
+
+<div class="card-film">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4 h-100">
+                <img src="@Url.Content(@Model.PosterUrl)" class="card-img h-100 img-full" alt="@Model.Title">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(m => m.Title) (@Html.DisplayFor(m => m.Year))</h3>
+                    <small class="text-muted font-italic">@Html.LabelFor(m => m.Producer): @Html.DisplayFor(m => m.Producer)</small>
+                    <p class="card-text text-justify">
+                        @Html.LabelFor(m => m.Description, new {@class="font-weight-bold"})<br/>
+                        @Html.DisplayFor(m => m.Description)
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">@Html.LabelFor(m => m.Owner) @Model.Owner</small>
+                    @if (Model.IsEditable)
+                    {
+                        <small class="float-right">@Html.ActionLink("Редактировать", "Edit", "Film", new {id=Model.Id} , null)</small>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

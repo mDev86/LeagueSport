@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    
+    @* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> *@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+            @Html.ActionLink("КИНОКОЛЛЕКЦИЯ", "Index", "Film", null, new {@class = "navbar-brand m-auto"})
+       
+            @Html.Partial("_LoginPartial")
+        </nav>
+            
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+        
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

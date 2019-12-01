@@ -1,0 +1,13 @@
+﻿@model Web.Models.FilmViewModels.EditedFilmViewModel
+
+@{
+    ViewBag.Title = "Редактирование информации";
+}
+
+<div>
+    @using (Html.BeginForm("Edit", "Film", FormMethod.Post, new {enctype="multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken();
+        @Html.Partial("_FilmEditData", Model)
+    }
+</div>

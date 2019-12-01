@@ -1,0 +1,42 @@
+﻿@using Web.Models
+@model FilmViewModels.ListFilms
+
+@{
+    ViewBag.Title = "Главная страница";
+}
+
+<div class="row mb-3">
+    <div class="col text-center">
+        @Html.ActionLink("Добавить фильм","New", "Film", null, new {@class="btn btn-success"})
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 mb-4">
+    @foreach (var film in Model.Films)
+    {
+        <div class="col mb-4">
+            <a href="@Url.Action("Detail", "Film",new {id=film.Id})" class="text-decoration-none">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@film.Title (@film.Year)</h5>
+                    </div>
+                    <img src="@Url.Content(film.PosterUrl)" class="card-img-top" alt="@film.Title">
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col clearfix">
+        @if (Model.CurrentPage > 1)
+        {
+            <a href="@Url.Action("Index", "Film", new {page = Model.CurrentPage - 1})" class="page-link float-left next">Назад</a>
+        }
+
+        @if (Model.Count > Model.CurrentPage * Model.SizePage)
+        {
+            <a href="@Url.Action("Index", "Film", new {page = Model.CurrentPage + 1})" class="page-link float-right prev">Далее</a>
+        }
+    </div>
+</div>

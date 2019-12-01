@@ -1,0 +1,27 @@
+﻿@model Web.Models.AccountViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<div class="text-center">
+    <div class="form-signin">
+        <div >
+            <div class="card-body card ">
+                @Html.Label("Регистрация", new {@class="title text-info font-weight-bold"})
+                @Html.ValidationSummary("", new {@class = "text-danger text-left"})
+                <div id="Login">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(m => m.Email, new {@class = "form-control mb-2", placeholder = Html.DisplayNameFor(m => m.Email)})
+                        @Html.PasswordFor(m => m.Password, new {@class = "form-control mb-2", placeholder = Html.DisplayNameFor(m => m.Password)})
+                        @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control mb-3", placeholder = Html.DisplayNameFor(m => m.ConfirmPassword)})
+                        
+                        <input type="submit" class="btn btn-primary col-12 mb-2" value="Зарегистрироваться"/>
+                        @Html.ActionLink("Войти", "Login", "Account")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
